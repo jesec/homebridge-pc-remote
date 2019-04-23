@@ -1,6 +1,5 @@
 let Homebridge;
 let Device  = require('./lib/device');
-let Storage = require('./lib/storage');
 
 const PLUGIN_NAME   = 'homebridge-samsung-tizen';
 const PLATFORM_NAME = 'SamsungTizen';
@@ -16,7 +15,6 @@ class SamsungPlatform {
 
         this.log     = log;
         this.api     = api;
-        this.storage = new Storage(api);
 
         this.config = {
             delay   : config.delay,
@@ -27,8 +25,6 @@ class SamsungPlatform {
             refresh : config.refresh,
             timeout : config.timeout
         };
-
-        this.storage.init();
     }
 
     accessories(callback) {
